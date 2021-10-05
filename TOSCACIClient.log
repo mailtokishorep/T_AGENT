@@ -1,0 +1,116 @@
+2021-10-03 12:09:15,276 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaCIRemoteExecutionService/
+2021-10-03 12:09:15,464 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 12:09:15,464 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 12:09:17,974 [1] ERROR TOSCAContinuousIntegration.TOSCACIClient.Program - Main: EndpointNotFoundException occured
+There was no endpoint listening at http://192.168.1.17:8732/ToscaCIRemoteExecutionService/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TOSCAContinuousIntegration.TOSCACIClient.ServiceReference1.IRemoteExecutionService.ExecuteWithoutConfig(String usernameHash, String passwordHash, String resultType)
+   at TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher.Execute()
+The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher.Execute()
+   at TOSCAContinuousIntegration.TOSCACIClient.Program.Main(String[] args)
+2021-10-03 12:10:31,973 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 12:10:31,989 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 12:10:31,989 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 12:11:01,463 [1] ERROR TOSCAContinuousIntegration.TOSCACIClient.Program - Main: FaultException occured
+Workspace locked by another process
+Inner Exception: 
+Tricentis.TCCore.Persistency.Repository.UnableToLockRepositoryException: Workspace locked by another process 'DESKTOP-0JR8CK8.16568:kisho'
+   at Tricentis.TCCore.Base.Workspace.AddOrWaitForLock(TimeSpan maxTimeToWait)
+   at Tricentis.TCCore.Base.Workspace.GetExclusiveLock(TimeSpan maxTimeToWait)
+   at Tricentis.TCCore.Base.Workspace.LockWorkspaceExclusive(TimeSpan maxTimeToWait)
+   at Tricentis.TCCore.Base.Workspace.LockWorkspaceExclusive()
+   at Tricentis.TCAPINativeConnector.Objects.TCAPINativeWorkspace..ctor(String twsPath, String loginName, String loginPassword, Int32 logLevel, TCConnectionBase myApiConnection)
+
+Server stack trace: 
+   at Tricentis.TCAPINativeConnector.Objects.TCAPINativeWorkspace..ctor(String twsPath, String loginName, String loginPassword, Int32 logLevel, TCConnectionBase myApiConnection)
+   at Tricentis.TCAPINativeConnector.TCAPINativeConnection.InternalOpenWorkspace(String twsPath, String loginUser, String loginPassword, Int32 logLevel, TCConnectionBase myApiConnection)
+   at Tricentis.TCAPIObjects.TCConnectionBase.OpenWorkspace(String twsPath, String loginUser, String loginPassword, Int32 logLevel)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at Tricentis.TCAPI.TCAPI.OpenWorkspace(String twsPath, String loginName, String loginPassword, Int32 logLevel)
+   at TOSCAContinuousIntegration.TOSCACIExecution.CITestExecutor.InitializeAPIAndOpenWorkSpace()
+   at TOSCAContinuousIntegration.TOSCACIExecution.CITestExecutionController.ExecuteViaAPI(String resultType, AbstractCITestConfigurationRootNode testConfigurationRoot, AbstractCITestExecutor executor)
+   at TOSCAContinuousIntegration.TOSCACIExecution.CITestExecutionController.ExecuteTestWithXmlConfiguration(String resultType, XmlDocument testConfiguration)
+   at TOSCAContinuousIntegration.TOSCACIExecution.CIExecutionManager.ExecuteTest(String resultType)
+   at TOSCAContinuousIntegration.TOSCACIRemoteExecutionService.Dispatching.ExecutionDispatcher.Redirect(String resultType, String config)
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TOSCAContinuousIntegration.TOSCACIClient.ServiceReference1.IRemoteExecutionService.ExecuteWithoutConfig(String usernameHash, String passwordHash, String resultType)
+   at TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher.Execute()
+   at TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher.Execute()
+   at TOSCAContinuousIntegration.TOSCACIClient.Program.Main(String[] args)
+2021-10-03 12:11:52,067 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 12:11:52,082 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 12:11:52,082 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 12:12:46,550 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 12:12:46,551 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 12:14:15,089 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 12:14:15,104 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 12:14:15,104 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 12:15:17,234 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 12:15:17,235 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 12:18:07,567 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 12:18:07,583 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 12:18:07,583 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 12:19:07,874 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 12:19:07,876 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 12:22:33,269 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 12:22:33,285 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 12:22:33,285 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 12:23:36,305 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 12:23:36,305 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 12:39:36,870 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 12:39:36,890 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 12:39:36,890 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 12:40:42,946 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 12:40:42,947 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 13:01:40,257 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 13:01:40,278 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 13:01:40,278 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 13:02:31,410 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 13:02:31,411 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 13:37:03,603 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 13:37:03,619 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 13:37:03,619 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 13:38:02,778 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 13:38:02,778 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 21:48:28,046 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 21:48:28,072 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 21:48:28,072 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 21:49:37,969 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 21:49:37,970 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-03 22:03:30,613 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-03 22:03:30,670 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-03 22:03:30,670 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-03 22:04:33,826 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-03 22:04:33,827 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
+2021-10-05 21:25:45,001 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - http://192.168.1.17:8732/ToscaRemoteExecutionService/
+2021-10-05 21:25:45,185 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Starting remote execution
+2021-10-05 21:25:45,185 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.AbstractRemoteDispatcher - Configuration File Path:
+2021-10-05 21:26:52,314 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Dispatching.CiDispatcher - Test execution has been finished.
+2021-10-05 21:26:52,315 [1] INFO  TOSCAContinuousIntegration.TOSCACIClient.Program - Result was printed to >C:\Temp\Result.xml<
